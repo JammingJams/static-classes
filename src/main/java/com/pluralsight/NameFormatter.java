@@ -5,7 +5,7 @@ public class NameFormatter {
         firstName = firstName.trim().substring(0,1).toUpperCase() + firstName.trim().toLowerCase().substring(1);
         lastName = lastName.trim().substring(0,1).toUpperCase() + lastName.trim().toLowerCase().substring(1);
         System.out.printf("%s %s\n", firstName, lastName);
-        return firstName + " " + lastName;
+        return lastName + " " + firstName;
     }
 
     public static String format(String prefix, String firstName, String middleName, String lastName, String suffix) {
@@ -14,8 +14,8 @@ public class NameFormatter {
         middleName = middleName.trim().substring(0,1).toUpperCase() + middleName.trim().toLowerCase().substring(1);
         lastName = lastName.trim().substring(0,1).toUpperCase() + lastName.trim().toLowerCase().substring(1);
         suffix = suffix.trim().substring(0,1).toUpperCase() + suffix.trim().toLowerCase().substring(1);
-        System.out.printf("%s. %s %s %s, %s\n", prefix, firstName, middleName, lastName, suffix);
-        return prefix + ". " + firstName + " " + middleName + " " + lastName + ", " + suffix;
+        System.out.printf("%s, %s. %s %s, %s\n", lastName, prefix, firstName, middleName, suffix);
+        return String.format("%s, %s. %s %s, %", lastName, prefix, firstName, middleName, suffix);
     }
 
     public static String format(String fullName) {
@@ -24,7 +24,8 @@ public class NameFormatter {
         for (String x : tempArray) {
             extra = extra + x.substring(0,1).toUpperCase() + x.substring(1).toLowerCase() + " ";
         }
-        System.out.println(extra);
+        fullName = extra.trim();
+        System.out.println(fullName);
         return fullName;
     }
 
