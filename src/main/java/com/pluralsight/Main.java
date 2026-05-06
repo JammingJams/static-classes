@@ -5,6 +5,7 @@ public class Main {
 
         NameFormatter.format(" noaH  ","  logaN  ");
         NameFormatter.format("mR", " nOaH  ", " jake ", "  lOgaN  ", "coL");
-        NameFormatter.format("cOol nAme jOhn");
+
+        System.out.println(NameFormatter.format("Mr Noah Jack Logan coL"));
     }
 }

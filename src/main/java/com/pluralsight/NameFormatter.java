@@ -15,18 +15,21 @@ public class NameFormatter {
         lastName = lastName.trim().substring(0,1).toUpperCase() + lastName.trim().toLowerCase().substring(1);
         suffix = suffix.trim().substring(0,1).toUpperCase() + suffix.trim().toLowerCase().substring(1);
         System.out.printf("%s, %s. %s %s, %s\n", lastName, prefix, firstName, middleName, suffix);
-        return String.format("%s, %s. %s %s, %", lastName, prefix, firstName, middleName, suffix);
+        return String.format("%s, %s. %s %s, %s\n", lastName, prefix, firstName, middleName, suffix);
     }
 
     public static String format(String fullName) {
-        String[] tempArray = fullName.split(" ");
-        String extra = "";
-        for (String x : tempArray) {
-            extra = extra + x.substring(0,1).toUpperCase() + x.substring(1).toLowerCase() + " ";
+        String[] tempArray = fullName.split("\\ ");
+        if (tempArray.length == 2) {
+            return tempArray[1] + tempArray[0];
         }
-        fullName = extra.trim();
-        System.out.println(fullName);
-        return fullName;
+        else if (tempArray.length == 4) {
+            return tempArray[2] + tempArray[1] + tempArray[0] + tempArray[3];
+        }
+        else if (tempArray.length == 5) {
+            return String.format("%s, %s. %s %s, %s\n", tempArray[3], tempArray[0], tempArray[1], tempArray[2], tempArray[4]);
+        }
+        else return "Incorrect Name Format";
     }
 
 
